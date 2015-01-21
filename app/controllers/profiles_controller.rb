@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
 
+  protect_from_forgery except: [:profile,:board]
   def index
     # @data = PinterestApi::Profile.new('designror')
   end
