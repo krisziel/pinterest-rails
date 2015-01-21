@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
     # @data = PinterestApi::Profile.new('designror')
   end
 
-  def show
+  def profile
     @data = PinterestApi::Profile.new(params[:username])
   end
 
