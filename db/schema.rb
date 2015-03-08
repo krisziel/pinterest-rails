@@ -11,9 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150308003001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boards", force: true do |t|
+    t.string   "title"
+    t.string   "images"
+    t.string   "link"
+    t.integer  "pins"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pinners", force: true do |t|
+    t.string   "username"
+    t.string   "name"
+    t.integer  "followers"
+    t.integer  "following"
+    t.integer  "pins"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pins", force: true do |t|
+    t.text     "description"
+    t.string   "domain"
+    t.string   "link"
+    t.string   "title"
+    t.json     "pinners"
+    t.integer  "repins"
+    t.integer  "comment_count"
+    t.json     "comments"
+    t.json     "images"
+    t.json     "pin_join"
+    t.integer  "pinner_id"
+    t.integer  "board_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

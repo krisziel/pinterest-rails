@@ -35,8 +35,8 @@ module PinterestApi
         :thumbs => board_images(board.css(".boardThumbs")[0])
       }
       data = {
-        :title => board.css(".boardRepTitle .title")[0].text,
-        :fullname => board.css(".boardRepTitle .fullname")[0].text,
+        :title => board.css(".boardRepTitle .title")[0].text.strip,
+        :fullname => board.css(".boardRepTitle .fullname")[0].text.strip,
         :link => board.css(".boardLinkWrapper")[0].attr("href"),
         :description => board.css(".boardLinkWrapper")[0].attr("title"),
         :images => images,

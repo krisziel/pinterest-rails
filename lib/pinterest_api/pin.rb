@@ -7,10 +7,10 @@ module PinterestApi
     end
 
     def parse_pin json
-      @title = json['title']
-      @id = json['id']
-      @description = json['description']
-      @title = json['title']
+      @title = json['title'].strip
+      @id = json['id'].strip
+      @description = json['description'].strip
+      @title = json['title'].strip
       @is_repin = json['is_repin']
       @domain = json['domain']
       @price = {
